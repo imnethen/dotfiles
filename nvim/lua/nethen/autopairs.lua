@@ -10,7 +10,7 @@ npairs.setup {
         javascript = { "string", "template_string" },
         java = false,
     },
-    disable_filetype = { "TelescopePrompt", "spectre_panel" },
+    disable_filetype = { "TelescopePrompt", "spectre_panel", "ocaml" },
     -- fast_wrap = {
     --     map = "<A-e>",
     --     chars = { "{", "[", "(", '"', "'" },

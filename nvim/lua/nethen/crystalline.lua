@@ -18,5 +18,5 @@ function vim.g.CrystallineStatuslineFn(winnr)
 end
 
 vim.o.laststatus = 2
-vim.g.crystalline_theme = "gruvbox"
--- vim.g.crystalline_theme = "dracula"
+-- vim.g.crystalline_theme = "gruvbox"
+vim.g.crystalline_theme = "dracula"

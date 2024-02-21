@@ -74,7 +74,7 @@ local mappings = {
     ["x"] = { "<cmd>wq<cr>", "Save and quit" },
     ["f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
     ["e"] = { "<cmd>Lex 30<cr>", "Explorer" },
-    ["t"] = { "<cmd>ToggleTerm<cr>", "Terminal" },
+    -- ["t"] = { "<cmd>ToggleTerm<cr>", "Terminal" },
     ["o"] = { "<cmd>Telescope oldfiles<cr>", "Old files" },
     ["/"] = { "<cmd>nohlsearch<cr>", "Clear selection" },
 

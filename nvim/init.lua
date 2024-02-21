@@ -11,3 +11,6 @@ require "nethen/treesitter".config()
 require "leap".add_default_mappings()
 require "nethen/whichkey"
 require "nethen/indentblankline"
+require "oil".setup()
+
+vim.cmd([[set rtp^="/home/nethen/.opam/default/share/ocp-indent/vim"]])

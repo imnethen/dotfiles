@@ -19,6 +19,17 @@ require "formatter".setup {
             }
         },
 
+        clojure = {
+            {
+                exe = "~/.local/share/nvim/mason/bin/zprint",
+                stdin = true,
+            }
+        },
+
+        ocaml = {
+            require("formatter.filetypes.ocaml").ocamlformat
+        },
+
         ["*"] = {
             require("formatter.filetypes.any").remove_trailing_whitespace
         }

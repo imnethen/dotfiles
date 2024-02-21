@@ -25,12 +25,18 @@ require "paq" {
     "unblevable/quick-scope",
     "rbong/vim-crystalline",
     "lukas-reineke/indent-blankline.nvim",
+    "Eandrju/cellular-automaton.nvim",
+    "stevearc/oil.nvim",
+    "HiPhish/rainbow-delimiters.nvim",
+    -- "rrethy/vim-illuminate",
+    "romainl/vim-cool",
 
     -- languages
     "tikhomirov/vim-glsl",
     "szebniok/tree-sitter-wgsl",
     "tidalcycles/vim-tidal",
     "imnethen/celestetas.nvim",
+    "elkowar/yuck.vim",
 
     -- cmp
     "hrsh7th/nvim-cmp",
@@ -79,7 +85,8 @@ vim.cmd([[autocmd FileType vert setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType frag setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType cpp setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType tas setlocal commentstring=#%s]])
+-- vim.cmd([[autocmd FileType asm setlocal commentstring=//%s]])
 
 
 -- vim.cmd([[colorscheme dracula]])
-vim.cmd "colorscheme gruvbox"
+vim.cmd "colorscheme catppuccin-macchiato"

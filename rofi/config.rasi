@@ -12,4 +12,5 @@ configuration {
 }
 
 /* @theme "themes/dracula2" */
-@theme "themes/gruvbox-rofi/gruvbox-dark-soft"
+/* @theme "themes/gruvbox-rofi/gruvbox-dark-soft" */
+@theme "themes/catppuccin"

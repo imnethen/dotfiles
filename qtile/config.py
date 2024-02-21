@@ -9,7 +9,7 @@ from keys import get_keys
 from groups import get_groups, get_scratch_pad
 from screens import get_screens
 
-theme = get_theme("gruvbox")
+theme = get_theme("catppuccin")
 
 keys = get_keys(mod="mod4")
 groups = get_groups()
@@ -40,6 +40,8 @@ keys.extend([
     Key([mod], "g", lazy.group["scratchpad"].dropdown_toggle("recorder")),
     Key([mod], "c", lazy.group["scratchpad"].dropdown_toggle("calc")),
     Key([mod], "h", lazy.group["scratchpad"].dropdown_toggle("htop")),
+    Key([mod], "p", lazy.group["scratchpad"].dropdown_toggle("mixer")),
+    # Key([mod], "u", lazy.group["scratchpad"].dropdown_toggle("translator")),
 ])
 
 layout_theme = {

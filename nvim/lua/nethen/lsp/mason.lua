@@ -5,6 +5,9 @@ local servers = {
     "gopls",
     "pylsp",
     "zls",
+    "asm_lsp",
+    "clojure_lsp",
+    "ocamllsp"
 }
 
 local settings = {

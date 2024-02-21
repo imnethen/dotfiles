@@ -2,6 +2,8 @@
 setxkbmap -option caps:escape &
 clipmenud &
 fcitx5 -dr &
+dunst &
+picom --config ~/.config/picom/picom.conf &
 
 firefox &
 flatpak run com.discordapp.Discord &

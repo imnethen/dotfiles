@@ -50,8 +50,10 @@ def get_scratch_pad():
     return ScratchPad(
         "scratchpad",
         [
-            DropDown("ranger", "kitty --class=ranger -T ranger -e ranger", width=.8, height=.8, x=.1, y=.1),
+            DropDown("ranger", "kitty --class=yazi -T yazi -e yazi", width=.8, height=.8, x=.1, y=.1),
             DropDown("recorder", "flatpak run com.dec05eba.gpu_screen_recorder", match=Match(wm_class=["gpu-screen-recorder-gtk"]), width=.8, height=.8, x=.1, y=.1),
             DropDown("calc", "kitty --class=qalc -T calculator -e qalc", width=.4, height=.6, x=.1, y=.1),
             DropDown("htop", "kitty --class=htop -T htop -e htop", width=.8, height=.8, x=.1, y=.1),
+            DropDown("mixer", "kitty --class=pulsemixer -T mixer -e pulsemixer", width=.4, height=.4, x=.5, y=.5),
+            # DropDown("translator", "kitty --class=crow -T translator -e crow", width=.4, height=.6, x=.5, y=.2),
         ])

@@ -1,0 +1,10 @@
+[pyprland]
+plugins =[
+    "scratchpads"
+]
+
+
+[scratchpads.calc]
+command = "kitty --class=silly"
+class = "silly"
+animation = "fromTop"

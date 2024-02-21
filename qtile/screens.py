@@ -52,7 +52,8 @@ def groupbox(theme):
 
 
 def volume(theme):
-    return widget.PulseVolume(
+    # return widget.PulseVolume(
+    return widget.Volume(
         fmt="Volume: {}",
         fontsize=16,
         background=theme.colors["bar_colors"][3]

@@ -1,92 +1,189 @@
--- TODO: use undotree
-require "paq" {
-	"savq/paq-nvim",
-
+-- TODO: organize better
+local plugins = {
     -- colorschemes
-    "NTBBloodbath/doom-one.nvim",
-    "maxmx03/dracula.nvim",
-    "shaunsingh/nord.nvim",
-    "ellisonleao/gruvbox.nvim",
-    "catppuccin/nvim",
-    "sainnhe/everforest",
+    {
+        "NTBBloodbath/doom-one.nvim",
+        lazy = true
+    },
+    {
+        "maxmx03/dracula.nvim",
+        lazy = true
+    },
+    {
+        "shaunsingh/nord.nvim",
+        lazy = true
+    },
+    {
+        "ellisonleao/gruvbox.nvim",
+        lazy = true
+    },
+    {
+        "sainnhe/everforest",
+        lazy = true
+    },
+    {
+        "catppuccin/nvim",
+        lazy = false,
+        priority=1000
+    },
 
     -- yes
-    "tpope/vim-surround",
-    "tpope/vim-commentary",
-    "nvim-lua/popup.nvim",
-    "nvim-lua/plenary.nvim",
-    "ggandor/leap.nvim",
-    "windwp/nvim-autopairs",
-    "nvim-telescope/telescope.nvim",
-    "burntsushi/ripgrep",
-    "nvim-treesitter/nvim-treesitter",
-    "akinsho/toggleterm.nvim",
-    "folke/which-key.nvim",
+    {
+        "nvim-lua/popup.nvim",
+        lazy = true,
+    },
+    {
+        "nvim-lua/plenary.nvim",
+        lazy = true,
+    },
+
+    {
+        "tpope/vim-surround",
+        lazy = true,
+        keys = {
+            "ys",
+            "ds",
+            "cs",
+        }
+    },
+    {
+        "tpope/vim-commentary",
+        lazy = true,
+        keys = { { "gc", mode = { "n", "v" } } },
+        cmd = "Commentary"
+    },
+    {
+        "ggandor/leap.nvim",
+        lazy = true,
+        keys = {
+            "s",
+            "S",
+            "gs"
+        },
+
+        config = function ()
+            require "leap".add_default_mappings()
+        end
+    },
+    {
+        "windwp/nvim-autopairs",
+        lazy = true,
+        event = "InsertEnter",
+        config = function ()
+            require "nethen/autopairs"
+        end
+    },
+    -- {
+    --     "nvim-telescope/telescope-fzf-native.nvim",
+    --     build = "make",
+    --     lazy = true,
+    -- },
+    {
+        "nvim-telescope/telescope.nvim",
+        lazy = true,
+        cmd = "Telescope",
+        config = function ()
+            require "nethen/telescope"
+        end,
+
+        dependencies = {
+            -- this doesnt work i think idk weh
+            "nvim-telescope/telescope-fzf-native.nvim",
+        }
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        config = function ()
+            require "nethen/treesitter".config()
+        end
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        lazy = true,
+        keys = "<C-/>",
+        cmd = {
+            "ToggleTerm",
+            "ToggleTermSendCurentLine",
+            "ToggleTermSendVisualLines",
+            "ToggleTermSendVisualSelection",
+            "ToggleTermSetName",
+            "ToggleTermToggleAll",
+        },
+        config = function ()
+            require "nethen/toggleterm"
+        end
+    },
+    {
+        "folke/which-key.nvim",
+        config = function ()
+            require "nethen/whichkey"
+        end
+    },
     "unblevable/quick-scope",
-    "rbong/vim-crystalline",
-    "lukas-reineke/indent-blankline.nvim",
-    "Eandrju/cellular-automaton.nvim",
-    "stevearc/oil.nvim",
-    "HiPhish/rainbow-delimiters.nvim",
+    -- "rbong/vim-crystalline",
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function ()
+            require "nethen/indentblankline"
+        end
+    },
+    {
+        "stevearc/oil.nvim",
+        lazy = false,
+        priority = 100,
+        config = true
+    },
+    -- "HiPhish/rainbow-delimiters.nvim",
     -- "rrethy/vim-illuminate",
-    "romainl/vim-cool",
+    {
+        "romainl/vim-cool",
+        lazy = true,
+        keys = { "/", "n", "N" },
+    },
 
     -- languages
-    "tikhomirov/vim-glsl",
-    "szebniok/tree-sitter-wgsl",
-    "tidalcycles/vim-tidal",
+    {
+        "tikhomirov/vim-glsl",
+        ft = "glsl"
+    },
+    {
+        "szebniok/tree-sitter-wgsl",
+        ft = "wgsl"
+    },
     "imnethen/celestetas.nvim",
-    "elkowar/yuck.vim",
+    -- "elkowar/yuck.vim",
 
     -- cmp
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-nvim-lsp",
-    "saadparwaiz1/cmp_luasnip",
-    "L3MON4D3/luasnip",
-    "rafamadriz/friendly-snippets",
+    {
+        "hrsh7th/nvim-cmp",
+        lazy = true,
+        -- event = "InsertEnter",
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp",
+            "saadparwaiz1/cmp_luasnip",
+            "L3MON4D3/luasnip",
+            "rafamadriz/friendly-snippets",
+        },
+
+        config = function ()
+            require "nethen/cmp"
+        end
+    },
 
     -- lsp
-    "neovim/nvim-lspconfig",
+    {
+        "neovim/nvim-lspconfig",
+        config = function ()
+            require "nethen/lsp"
+        end
+    },
+    -- can't lazy load these
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "mhartington/formatter.nvim",
 }
 
--- automatically sync plugins when this file is saved
-vim.cmd([[
-	augroup paq_user_config
-		autocmd!
-		autocmd BufWritePost plugins.lua source <afile> | PaqSync
-	augroup end
-]])
-
--- quickscope colorscheme
-vim.cmd([[
-    augroup qs_colors
-        autocmd!
-        autocmd ColorScheme * highlight QuickScopePrimary guifg='#88ddff' gui=underline
-        autocmd ColorScheme * highlight QuickScopeSecondary guifg='#ababab' gui=underline
-    augroup END
-]])
-
--- format on filesave
-vim.cmd([[
-    augroup auto_format
-        autocmd!
-        autocmd BufWritePost * FormatWrite
-    augroup END
-]])
-
-vim.cmd([[autocmd FileType glsl setlocal commentstring=//%s]])
-vim.cmd([[autocmd FileType vert setlocal commentstring=//%s]])
-vim.cmd([[autocmd FileType frag setlocal commentstring=//%s]])
-vim.cmd([[autocmd FileType cpp setlocal commentstring=//%s]])
-vim.cmd([[autocmd FileType tas setlocal commentstring=#%s]])
--- vim.cmd([[autocmd FileType asm setlocal commentstring=//%s]])
-
-
--- vim.cmd([[colorscheme dracula]])
-vim.cmd "colorscheme catppuccin-macchiato"
+return plugins

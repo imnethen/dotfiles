@@ -1,0 +1,506 @@
+# version 7.3
+# modified to output ucsur
+
+matches:
+  # punctuation etc
+  - triggers: ["zz\\", "  \\"]
+    replace: "　" # ! changed to logograph fullwidth space
+
+  - trigger: "-\\"
+    replace: "‍" # ! changed to zero width non joiner
+
+  - trigger: "^\\"
+    replace: "󱦕" # ! changed to stacking joiner
+
+  - trigger: "*\\"
+    replace: "󱦖" # ! changed to scaling joiner
+
+  - trigger: ":\\"
+    replace: "󱦝" # ! changed to sp colon
+
+  - trigger: ".\\"
+    replace: "󱦜" # ! changed to sp full stop
+
+  - trigger: "[\\"
+    replace: "󱦐" # ! changed to cartouche start
+
+  - trigger: "]\\"
+    replace: "󱦑" # ! changed to cartouche end
+
+  - trigger: "<\\"
+    replace: "「" # ! changed to cjk start quote
+
+  - trigger: ">\\"
+    replace: "」" # ! changed to cjk end quote
+
+  - trigger: "(\\"
+    replace: "󱦗" # ! changed to "start left-combining (normal) long glyph"
+
+  - trigger: ")\\"
+    replace: "󱦘" # ! changed to "end left-combining (normal) long glyph"
+
+  - trigger: "{\\"
+    replace: "󱦚" # ! changed to "start right-combining (reversed) long glyph"
+
+  - trigger: "}\\"
+    replace: "󱦛" # ! changed to "end right-combining (reversed) long glyph"
+
+  # contractions
+  - triggers: ["msa\\", "misonala\\", "misonaala\\"]
+    replace: "󱤴󱥡󱤂"
+
+  # pu
+  - trigger: "a\\"
+    replace: "󱤀"
+
+  - trigger: "aaa\\"
+    replace: "󱤀󱤀󱤀"
+
+  - trigger: "akesi\\"
+    replace: "󱤁"
+
+  - trigger: "ala\\"
+    replace: "󱤂"
+
+  - trigger: "alasa\\"
+    replace: "󱤃"
+
+  - triggers: ["ale\\", "ali\\"]
+    replace: "󱤄"
+
+  - trigger: "anpa\\"
+    replace: "󱤅"
+
+  - trigger: "ante\\"
+    replace: "󱤆"
+
+  - trigger: "anu\\"
+    replace: "󱤇"
+
+  - trigger: "awen\\"
+    replace: "󱤈"
+
+  - trigger: "e\\"
+    replace: "󱤉"
+
+  - trigger: "en\\"
+    replace: "󱤊"
+
+  - trigger: "esun\\"
+    replace: "󱤋"
+
+  - trigger: "ijo\\"
+    replace: "󱤌"
+
+  - trigger: "ike\\"
+    replace: "󱤍"
+
+  - trigger: "ilo\\"
+    replace: "󱤎"
+
+  - trigger: "insa\\"
+    replace: "󱤏"
+
+  - trigger: "jaki\\"
+    replace: "󱤐"
+
+  - trigger: "jan\\"
+    replace: "󱤑"
+
+  - trigger: "jelo\\"
+    replace: "󱤒"
+
+  - trigger: "jo\\"
+    replace: "󱤓"
+
+  - trigger: "kala\\"
+    replace: "󱤔"
+
+  - trigger: "kalama\\"
+    replace: "󱤕"
+
+  - trigger: "kama\\"
+    replace: "󱤖"
+
+  - trigger: "kasi\\"
+    replace: "󱤗"
+
+  - trigger: "ken\\"
+    replace: "󱤘"
+
+  - triggers: ["kepeken\\", "kepen\\", "kpkn\\"]
+    replace: "󱤙"
+
+  - trigger: "kili\\"
+    replace: "󱤚"
+
+  - trigger: "kin\\"
+    replace: "󱥹"
+
+  - trigger: "kiwen\\"
+    replace: "󱤛"
+
+  - trigger: "ko\\"
+    replace: "󱤜"
+
+  - trigger: "kon\\"
+    replace: "󱤝"
+
+  - trigger: "kule\\"
+    replace: "󱤞"
+
+  - trigger: "kulupu\\"
+    replace: "󱤟"
+
+  - trigger: "kute\\"
+    replace: "󱤠"
+
+  - trigger: "la\\"
+    replace: "󱤡"
+
+  - trigger: "lape\\"
+    replace: "󱤢"
+
+  - trigger: "laso\\"
+    replace: "󱤣"
+
+  - trigger: "lawa\\"
+    replace: "󱤤"
+
+  - trigger: "len\\"
+    replace: "󱤥"
+
+  - trigger: "lete\\"
+    replace: "󱤦"
+
+  - trigger: "li\\"
+    replace: "󱤧"
+
+  - trigger: "lili\\"
+    replace: "󱤨"
+
+  - trigger: "linja\\"
+    replace: "󱤩"
+
+  - trigger: "lipu\\"
+    replace: "󱤪"
+
+  - trigger: "loje\\"
+    replace: "󱤫"
+
+  - trigger: "lon\\"
+    replace: "󱤬"
+
+  - trigger: "luka\\"
+    replace: "󱤭"
+
+  - trigger: "lukin\\"
+    replace: "󱤮"
+
+  - trigger: "oko\\"
+    replace: "󱥺"
+
+  - trigger: "lupa\\"
+    replace: "󱤯"
+
+  - trigger: "ma\\"
+    replace: "󱤰"
+
+  - trigger: "mama\\"
+    replace: "󱤱"
+
+  - trigger: "mani\\"
+    replace: "󱤲"
+
+  - trigger: "meli\\"
+    replace: "󱤳"
+
+  - trigger: "mi\\"
+    replace: "󱤴"
+
+  - trigger: "mije\\"
+    replace: "󱤵"
+
+  - trigger: "moku\\"
+    replace: "󱤶"
+
+  - trigger: "moli\\"
+    replace: "󱤷"
+
+  - trigger: "monsi\\"
+    replace: "󱤸"
+
+  - trigger: "mu\\"
+    replace: "󱤹"
+
+  - trigger: "mun\\"
+    replace: "󱤺"
+
+  - trigger: "musi\\"
+    replace: "󱤻"
+
+  - trigger: "mute\\"
+    replace: "󱤼"
+
+  - trigger: "namako\\"
+    replace: "󱥸"
+
+  - trigger: "nanpa\\"
+    replace: "󱤽"
+
+  - trigger: "nasa\\"
+    replace: "󱤾"
+
+  - trigger: "nasin\\"
+    replace: "󱤿"
+
+  - trigger: "nena\\"
+    replace: "󱥀"
+
+  - trigger: "ni\\"
+    replace: "󱥁"
+
+  - trigger: "nimi\\"
+    replace: "󱥂"
+
+  - trigger: "noka\\"
+    replace: "󱥃"
+
+  - trigger: "o\\"
+    replace: "󱥄"
+
+  - trigger: "olin\\"
+    replace: "󱥅"
+
+  - trigger: "ona\\"
+    replace: "󱥆"
+
+  - trigger: "open\\"
+    replace: "󱥇"
+
+  - trigger: "pakala\\"
+    replace: "󱥈"
+
+  - trigger: "pali\\"
+    replace: "󱥉"
+
+  - trigger: "palisa\\"
+    replace: "󱥊"
+
+  - trigger: "pan\\"
+    replace: "󱥋"
+
+  - trigger: "pana\\"
+    replace: "󱥌"
+
+  - trigger: "pi\\"
+    replace: "󱥍"
+
+  - trigger: "pilin\\"
+    replace: "󱥎"
+
+  - trigger: "pimeja\\"
+    replace: "󱥏"
+
+  - trigger: "pini\\"
+    replace: "󱥐"
+
+  - trigger: "pipi\\"
+    replace: "󱥑"
+
+  - trigger: "poka\\"
+    replace: "󱥒"
+
+  - trigger: "poki\\"
+    replace: "󱥓"
+
+  - trigger: "pona\\"
+    replace: "󱥔"
+
+  - trigger: "pu\\"
+    replace: "󱥕"
+
+  - trigger: "sama\\"
+    replace: "󱥖"
+
+  - trigger: "seli\\"
+    replace: "󱥗"
+
+  - trigger: "selo\\"
+    replace: "󱥘"
+
+  - trigger: "seme\\"
+    replace: "󱥙"
+
+  - trigger: "sewi\\"
+    replace: "󱥚"
+
+  - trigger: "sijelo\\"
+    replace: "󱥛"
+
+  - trigger: "sike\\"
+    replace: "󱥜"
+
+  - trigger: "sin\\"
+    replace: "󱥝"
+
+  - trigger: "sina\\"
+    replace: "󱥞"
+
+  - trigger: "sinpin\\"
+    replace: "󱥟"
+
+  - trigger: "sitelen\\"
+    replace: "󱥠"
+
+  - trigger: "sona\\"
+    replace: "󱥡"
+
+  - trigger: "soweli\\"
+    replace: "󱥢"
+
+  - trigger: "suli\\"
+    replace: "󱥣"
+
+  - trigger: "suno\\"
+    replace: "󱥤"
+
+  - trigger: "supa\\"
+    replace: "󱥥"
+
+  - trigger: "suwi\\"
+    replace: "󱥦"
+
+  - trigger: "tan\\"
+    replace: "󱥧"
+
+  - trigger: "taso\\"
+    replace: "󱥨"
+
+  - trigger: "tawa\\"
+    replace: "󱥩"
+
+  - trigger: "telo\\"
+    replace: "󱥪"
+
+  - trigger: "tenpo\\"
+    replace: "󱥫"
+
+  - trigger: "toki\\"
+    replace: "󱥬"
+
+  - trigger: "tomo\\"
+    replace: "󱥭"
+
+  - trigger: "tu\\"
+    replace: "󱥮"
+
+  - trigger: "unpa\\"
+    replace: "󱥯"
+
+  - trigger: "uta\\"
+    replace: "󱥰"
+
+  - trigger: "utala\\"
+    replace: "󱥱"
+
+  - trigger: "walo\\"
+    replace: "󱥲"
+
+  - trigger: "wan\\"
+    replace: "󱥳"
+
+  - trigger: "waso\\"
+    replace: "󱥴"
+
+  - trigger: "wawa\\"
+    replace: "󱥵"
+
+  - trigger: "weka\\"
+    replace: "󱥶"
+
+  - trigger: "wile\\"
+    replace: "󱥷"
+
+  # ku suli
+  - trigger: "tonsi\\"
+    replace: "󱥾"
+
+  - trigger: "monsuta\\"
+    replace: "󱥽"
+
+  - triggers: ["kije\\", "kijete\\", "kijetesantakalu\\"]
+    replace: "󱦀"
+
+  - trigger: "leko\\"
+    replace: "󱥼"
+
+  - trigger: "kipisi\\"
+    replace: "󱥻"
+
+  - trigger: "apeja\\"
+    replace: "󱦡"
+
+  - trigger: "jasima\\"
+    replace: "󱥿"
+
+  - triggers: ["oke\\", "oki\\", "ke\\"]
+    replace: "󿫤"
+
+  - trigger: "n\\"
+    replace: "󱦆"
+
+  - trigger: "soko\\"
+    replace: "󱦁"
+
+  - trigger: "meso\\"
+    replace: "󱦂"
+
+  - trigger: "epiku\\"
+    replace: "󱦃"
+
+  - trigger: "kokosila\\"
+    replace: "󱦄"
+
+  - trigger: "lanpan\\"
+    replace: "󱦅"
+
+  - trigger: "misikeke\\"
+    replace: "󱦇"
+
+  - trigger: "ku\\"
+    replace: "󱦈"
+
+  - trigger: "su\\"
+    replace: "󿬯"
+
+  # (select) ku lili
+  - trigger: "isipin\\"
+    replace: "󿫀"
+
+  - trigger: "kapesi\\"
+    replace: "󿫁"
+
+  - trigger: "kiki\\"
+    replace: "󿫃"
+
+  - triggers: ["linluwi\\", "linuwi\\"]
+    replace: "󿫄"
+
+  - trigger: "mulapisu\\"
+    replace: "󿫈"
+
+  - trigger: "pake\\"
+    replace: "󱦠"
+
+  - trigger: "Pingo\\"
+    replace: "󿫽"
+
+  - trigger: "powe\\"
+    replace: "󱦣"
+
+  - trigger: "unu\\"
+    replace: "󿫊"
+
+  - trigger: "wa\\"
+    replace: "󿫋"

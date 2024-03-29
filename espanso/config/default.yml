@@ -40,3 +40,9 @@
 # For a list of all the available options, visit the official docs at: https://espanso.org/docs/
 
 show_notifications: false
+
+keyboard_layout:
+  layout: us
+  variant: workman
+
+search_shortcut: ALT+SHIFT+SPACE

@@ -14,7 +14,7 @@ require "formatter".setup {
         tas = {
             {
                 -- exe = "~/Code/tasfmt/tasfmt",
-                exe = "~/.local/share/nvim/site/pack/paqs/start/celestetas.nvim/bin/fmt/tasfmt",
+                exe = "~/.local/share/nvim/lazy/celestetas.nvim/bin/fmt/tasfmt",
                 stdin = true,
             }
         },

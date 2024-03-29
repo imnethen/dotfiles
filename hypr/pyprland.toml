@@ -1,10 +1,29 @@
 [pyprland]
-plugins =[
-    "scratchpads"
+plugins = [
+    "scratchpads",
+    "expose",
+    "fetch_client_menu"
 ]
 
-
 [scratchpads.calc]
-command = "kitty --class=silly"
-class = "silly"
+command = "kitty --class=qalc -e qalc"
+class = "qalc"
+animation = "fromLeft"
+size = "50% 60%"
+
+[scratchpads.yazi]
+command = "kitty --class=yazi -e yazi"
+class = "yazi"
 animation = "fromTop"
+
+[scratchpads.mixer]
+command = "kitty --class=pulsemixer -e pulsemixer"
+class = "pulsemixer"
+animation = "fromRight"
+size = "40% 35%"
+
+[scratchpads.music]
+command = "kitty --class=ncmpcpp -e ncmpcpp"
+class = "ncmpcpp"
+animation = "fromTop"
+size = "50% 50%"

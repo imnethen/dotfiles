@@ -1,6 +1,6 @@
 local M = {}
 
-vim.filetype.add( {extension = { wgsl = "wgsl" } } )
+vim.filetype.add( { extension = { wgsl = "wgsl" } } )
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.wgsl = {

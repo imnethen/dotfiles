@@ -37,7 +37,7 @@ extract = [
 	{ exec = 'unar "$1"', desc = "Extract here", for = "unix" },
 ]
 play = [
-	{ exec = 'vlc "$@"', orphan = true, for = "unix" },
+	{ exec = 'mpv "$@"', orphan = true, for = "unix" },
 	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 ]
 

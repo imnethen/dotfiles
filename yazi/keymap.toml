@@ -149,7 +149,7 @@ keymap = [
 	# Help
 	{ on = [ "~" ], exec = "help", desc = "Open help" },
 
-    { on = [ "R" ], exec = "shell --confirm --block '/home/nethen/.local/bin/dragon -a -x \"$1\"'", desc = "Drag and drop"}
+    { on = [ "R" ], exec = "shell --confirm --block 'dragon-drop -a -x \"$1\"'", desc = "Drag and drop"}
 ]
 
 [tasks]

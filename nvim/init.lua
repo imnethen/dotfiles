@@ -1,3 +1,4 @@
+vim.cmd [[set rtp^=/home/nethen/.opam/default/share/ocp-indent/vim]]
 local lazypath = vim.fn.stdpath("data") .. "lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -18,7 +19,6 @@ require("lazy").setup(plugins)
 require "nethen/options"
 require "nethen/keymaps"
 
--- vim.cmd [[set rtp^="home/nethen/.opam/default/share/ocp-indent/vim"]]
 
 -- quickscope colorscheme
 vim.cmd([[

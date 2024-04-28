@@ -7,7 +7,7 @@ local servers = {
     "zls",
     -- "asm_lsp",
     "clojure_lsp",
-    -- "ocamllsp"
+    "ocamllsp"
 }
 
 local settings = {

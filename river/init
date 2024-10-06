@@ -1,0 +1,8 @@
+#!/bin/sh
+
+source ~/.config/river/env.sh
+source ~/.config/river/options.sh
+source ~/.config/river/keymaps.sh
+source ~/.config/river/windowrules.sh
+source ~/.config/river/scratchpads.sh
+source ~/.config/river/autostart.sh

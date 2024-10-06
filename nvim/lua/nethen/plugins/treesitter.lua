@@ -7,12 +7,12 @@ return {
             local configs = require "nvim-treesitter/configs"
             configs.setup {
                 ensure_installed = "all",
-                sync_intsall = false,
-                highlight = { enable = true, disable = { "" } },
+                sync_install = false,
+                highlight = { enable = true },
                 -- TODO: check if good
                 autopairs = { enable = false },
                 indent = { enable = true },
-                context_commentstring = { enable = false }
+                context_commentstring = { enable = false, enable_autocmd = false }
             }
             vim.cmd "TSEnable highlight"
         end

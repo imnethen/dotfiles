@@ -8,7 +8,7 @@ return {
             -- "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lsp",
             -- "saadparwaiz1/cmp_luasnip",
-            -- "L3MON4D3/luasnip",
+            "L3MON4D3/luasnip",
             -- "rafamadriz/friendly-snippets",
         },
 
@@ -49,7 +49,8 @@ return {
 
             cmp.setup {
                 snippet = {
-                    expand = function(_)
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
                     end
                 },
                 mapping = {

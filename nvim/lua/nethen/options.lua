@@ -38,6 +38,9 @@ vim.cmd([[autocmd FileType vert setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType frag setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType cpp setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType tas setlocal commentstring=#%s]])
+vim.cmd([[autocmd FileType wgsl setlocal commentstring=//%s]])
+
+vim.filetype.add({ extension = { ua = "uiua" }})
 
 -- vim.cmd "colorscheme catppuccin-macchiato"
 vim.cmd "colorscheme everforest"

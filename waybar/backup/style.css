@@ -1,0 +1,140 @@
+@define-color bg-hover #f28668;
+@define-color lbg #131721;
+@define-color bg #24273a;
+/* @define-color bg #0b0e14; */
+@define-color blue #73b8ff;
+@define-color sky #95e6cb;
+@define-color red #f07178;
+@define-color pink #f28779;
+@define-color lavender #d2a6ff;
+@define-color rosewater #f07178;
+@define-color mauve #c6a0f6;
+@define-color flamingo #f07178;
+/* @define-color fg #bfbdb6; */
+@define-color fg #cad3f5;
+@define-color green #7fd962;
+@define-color active-green #aad94c;
+@define-color dark-fg #787bb0;
+@define-color peach #f2966b;
+@define-color border @mauve;
+@define-color gray2 #cccac2;
+@define-color black4 #0d1017;
+@define-color black3 #131721;
+@define-color maroon #d95757;
+@define-color yellow #FF8F40;
+@define-color main @mauve;
+
+* {
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 7px;
+    /* font-family: "JetBrains Mono Nerd Font"; */
+    font-family: "FiraCode";
+    font-size: 14pt;
+    font-weight: 600;
+}
+
+tooltip {
+    background: @bg;
+    border-radius: 7px;
+    border: 2px solid @border;
+}
+
+#window {
+	margin: 0px 0px 2px 5px;
+	padding-left: 10px;
+	padding-right: 7px;
+	border-radius: 7px;
+	/* border-bottom: 2px solid @bg; */
+	/* border-right: 2px solid @bg; */
+	background-color: @main;
+	color: @bg;
+}
+
+window#waybar.empty #window {
+	background-color: transparent;
+	border-bottom: none;
+	border-right: none;
+}
+
+window#waybar {
+    background-color:transparent;
+    color: @lavender;
+}
+
+/* Workspaces */
+/* @keyframes button_activate { */
+/* 	from { opacity: .3 } */
+/* 	to { opacity: 1.; } */
+/* } */
+
+#workspaces,
+#tags {
+    margin: 10px 0px 2px 10px;
+    border-radius: 7px;
+    padding: 0px;
+    background-color: @bg;
+    color: @bg;
+}
+
+#workspaces button,
+#tags button {
+    /* margin: 0px 2px 5px 2px; */
+    margin: 3px;
+    border-radius: 5px;
+    padding-left: 0px;
+    padding-right: 7px;
+    background-color: @bg;
+    color: @fg;
+}
+
+#workspaces button.active,
+#tags button.focused {
+    background-color: @main;
+    color: @bg;
+    min-height: 35px;
+}
+
+#workspaces button.urgent,
+#tags button.urgent {
+	color: #F38BA8;
+}
+
+#workspaces button:hover {
+    color: #000000;
+    background-color: #000000;
+  /* border: solid transparent; */
+}
+
+#tray {
+    margin: 0px 0px 2px 10px;
+    padding: 3px 0px 3px 0px;
+    background-color: @bg;
+    color: @fg;
+}
+
+#mpd,
+#language,
+#pulseaudio {
+    margin: 0px 0px 2px 10px;
+    font-size: 12pt;
+    color: @fg;
+    background-color: @bg;
+    border-radius: 7px;
+}
+
+#mpd {
+    padding-right: 5px;
+}
+
+#clock {
+    font-size: 12pt;
+    margin: 0px 0px 10px 10px;
+    padding: 3px 0px 3px 0px;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    border-radius: 7px;
+    color: @fg;
+    background-color: @bg;
+}

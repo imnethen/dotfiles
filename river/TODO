@@ -1,0 +1,8 @@
+waybar config:
+    network
+    style
+    language
+
+dunst config
+
+modes

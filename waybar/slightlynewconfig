@@ -4,24 +4,18 @@
     "position": "left",
     "height": 1416,
     "margin": "0 0 0 6",
-    "spacing": 5,
 
     "modules-left": ["river/tags", "pulseaudio", "mpd"],
-    "modules-center": ["river/window"],
     "modules-right": ["tray", "clock"],
 
     "river/tags": {
-        "num-tags": 15,
-        "tag-labels": ["a", "x", "d", "c", "o", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-    },
-    "river/window": {
-        "rotate": 90,
-        "max-length": 60,
+        "tag-labels": {
+            "1": "a",
+        }
     },
 
     "mpd": {
-         //"format": "{stateIcon}  ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {filename}",
-         "format": "{stateIcon}  ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+         "format": "{stateIcon}  ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {filename}",
          "rotate": 90,
         // "format-disconnected": "MPD Disconnected",
         //"format": "{stateIcon}",
@@ -44,7 +38,6 @@
         "format": "{:%H\n%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%d\n%m\n%a}",
-        //"timezone": "Etc/GMT+3",
     },
 
     // "cpu": {

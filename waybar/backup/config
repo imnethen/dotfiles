@@ -1,0 +1,107 @@
+// vim: filetype=jsonc
+{
+    "layer": "bottom", // Waybar at top layer
+    "position": "left", // Waybar position (top|bottom|left|right)
+    // "height": 34, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+
+    "modules-left": ["hyprland/workspaces", "pulseaudio", "mpd"],
+    // "modules-center": ["hyprland/window"],
+    "modules-right": ["hyprland/language", "tray", "clock"],
+
+    // Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "format":"{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "Z",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+
+    "hyprland/window": {
+        "rewrite": {
+            ".*": "j",
+        },
+    },
+    "mpd": {
+        "rotate": 90,
+         "format": "{stateIcon}  ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {filename}",
+        // "format-disconnected": "MPD Disconnected",
+        //"format": "{stateIcon}",
+        "format-stopped": ":3",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "on-click": "mpc toggle"
+    },
+    "tray": {
+        "icon-size": 22,
+        "spacing": 10
+    },
+    "clock": {
+        // "format": "{:%H:%M\n %a\n%d/%m}",
+        "format": "{:%H\n%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d\n%m\n%a}",
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        // "interface": "wlan0", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 10, // %, can be a float
+        // "format": "{volume}%{icon} {format_source}",
+        "format": "{volume}%{icon}",
+        // "format-bluetooth": "{volume}% {icon} {format_source}",
+        // "format-bluetooth-muted": "{icon} {format_source}",
+        // "format-muted": "{format_source}",
+        "format-muted": "",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        // "format-icons": {
+        //     "headphone": "",
+        //     "hands-free": "",
+        //     "headset": "",
+        //     "phone": "",
+        //     "portable": "",
+        //     "car": "",
+        //     "default": ["", "", ""]
+        // },
+        "on-click": "pulsemixer --toggle-mute"
+    },
+    "hyprland/language": {
+        "format": "{shortDescription}"
+    }
+}

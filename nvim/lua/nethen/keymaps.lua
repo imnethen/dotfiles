@@ -14,6 +14,11 @@ keymap("n", "V", "v", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+
+keymap("n", "<space>n", "<cmd>lua require('wsnavigator').open_wsn()<cr>", opts)
+
 vim.cmd([[
     autocmd! BufNewFile,BufRead *.tas nnoremap <Esc> :w<CR>
 ]])

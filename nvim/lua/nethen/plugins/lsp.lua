@@ -7,7 +7,8 @@ return {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "mhartington/formatter.nvim",
-            "hrsh7th/cmp-nvim-lsp"
+            "hrsh7th/cmp-nvim-lsp",
+            -- "sputnick1124/uiua.vim",
         },
 
         config = function()
@@ -28,7 +29,7 @@ return {
                 "pylsp",
                 "zls",
                 "clojure_lsp",
-                "ocamllsp"
+                "ocamllsp",
             }
 
             local settings = {
@@ -72,26 +73,37 @@ return {
             end
 
             local lspconfig = require "lspconfig"
-            local opts = {}
+            local opts = {
+                on_attach = function(_, bufnr)
+                    lsp_keymaps(bufnr)
+                end,
+                capabilities = caps
+            }
 
             for _, server in pairs(servers) do
-                opts = {
-                    on_attach = function(_, bufnr)
-                        lsp_keymaps(bufnr)
-                    end,
-                    capabilities = caps
-                }
-
-                server = vim.split(server, "@")[1]
-
-                -- TODO: check if this does anything useful
-                -- local require_ok, conf_opts = pcall(require, "nethen/lsp/settings." .. server)
-                -- if require_ok then
-                --     opts = vim.tbl_deep_extend("force", conf_opts, opts)
-                -- end
-
                 lspconfig[server].setup(opts)
             end
+
+            -- uiua and wgsl setup
+            lspconfig["uiua"].setup({
+                on_attach = opts.on_attach,
+                capabilities = caps,
+                cmd = { "uiua", "lsp" }
+            })
+
+            lspconfig["wgsl_analyzer"].setup({
+                on_attach = opts.on_attach,
+                capabilities = caps,
+                cmd = { "wgsl_analyzer" },
+                root_dir = lspconfig.util.root_pattern "*"
+            })
+
+            -- lspconfig["ocamllsp"].setup({
+            --     on_attach = opts.on_attach,
+            --     capabilities = caps,
+            --     cmd = { "ocamllsp" },
+            --     root_dir = lspconfig.util.root_pattern "*"
+            -- })
 
             -- not mason config
             local signs = {
@@ -148,8 +160,21 @@ return {
                             stdin = true,
                         }
                     },
-                    -- TODO
-                    clojure = {},
+
+                    uiua = {
+                        {
+                            exe = "/sbin/uiua",
+                            args = { "fmt" },
+                            -- stdin = true
+                        }
+                    },
+
+                    clojure = {
+                        {
+                            exe = "~/.local/share/nvim/mason/bin/zprint",
+                            stdin = true,
+                        }
+                    },
                 }
             }
         end

@@ -1,20 +1,11 @@
 @define-color bg #2d353b;
 @define-color white #d3c6aa;
-
-@define-color red #e67e80;
-@define-color orange #e69875;
-@define-color yellow #dbbc7f;
-@define-color green #a7c080;
-@define-color emerald #83c092;
-@define-color blue #7fbbb3;
-@define-color pink #d699b6;
-
-@define-color accent @green;
+@define-color main @white;
 * {
 	border: none;
 	border-radius: 0;
 	box-shadow: none;
-	/*color: @white;*/
+	color: @main;
     font-family: "FiraCode";
 	font-size: 14px;
     font-weight: 600;
@@ -27,7 +18,6 @@
 
 tooltip {
 	background: @bg;
-    color: @white;
 	border: 1px solid #a9b665;
 }
 
@@ -45,28 +35,19 @@ window#waybar {
 }
 
 #tags button {
-    color: @white;
+    color: @main;
     background-color: @bg;
 }
 
 #tags button.focused {
     color: @bg;
-    background-color: @accent;
+    /* background-color: @main; */
     min-height: 30px;
 }
 
-#tags button.hover {
-    color: @bg;
-    background-color: @accent;
-    /* color: #FFFFFF; */
-    /* background-color: #FFFFFF; */
-}
-
-#mpd,
-#tray,
-#pulseaudio,
-#window {
-    color: @white;
+#tags buggon:hover {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 /* #tray { */
@@ -108,6 +89,6 @@ window#waybar {
 /* } */
 
 #clock {
-	background-color: @accent;
+	background-color: @main;
 	color: @bg;
 }

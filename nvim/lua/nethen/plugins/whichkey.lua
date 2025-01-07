@@ -2,6 +2,7 @@ return {
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
+        version = "2.1.0",
 
         config = function()
             local whichkey = require "which-key"
@@ -47,7 +48,6 @@ return {
                 hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
 
                 show_help = true,
-                triggers = "auto"
             }
 
             local opts = {
@@ -69,6 +69,7 @@ return {
                 -- ["t"] = { "<cmd>ToggleTerm<cr>", "Terminal" },
                 ["o"] = { "<cmd>Telescope oldfiles<cr>", "Old files" },
                 ["/"] = { "<cmd>nohlsearch<cr>", "Clear selection" },
+                ["y"] = { "ggVG\"+y", "Yank file to clipboard" },
 
                 l = {
                     name = "LSP",
@@ -97,6 +98,7 @@ return {
             }
 
             whichkey.setup(setup)
+            -- whichkey.add(mappings)
             whichkey.register(mappings, opts)
         end
     }

@@ -57,11 +57,15 @@ return {
     {
         "romainl/vim-cool",
         lazy = true,
-        keys = { "/", "n", "N" },
+        keys = { "/", "n", "N", ":" },
     },
     {
         "tikhomirov/vim-glsl",
         ft = "glsl"
+    },
+    {
+        "laurelmay/riscv.vim",
+        lazy = false
     },
     -- {
     --     "szebniok/tree-sitter-wgsl",

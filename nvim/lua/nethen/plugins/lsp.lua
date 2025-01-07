@@ -98,6 +98,13 @@ return {
                 root_dir = lspconfig.util.root_pattern "*"
             })
 
+            lspconfig["clangd"].setup({
+                on_attach = opts.on_attach,
+                capabilities = caps,
+                cmd = { "clangd" },
+                root_dir = lspconfig.util.root_pattern "*"
+            })
+
             -- lspconfig["ocamllsp"].setup({
             --     on_attach = opts.on_attach,
             --     capabilities = caps,

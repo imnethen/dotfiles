@@ -1,12 +1,14 @@
 return {
     {
         "mfussenegger/nvim-dap",
+
+        keys = "<space>d",
+
         dependencies = {
             "nvim-neotest/nvim-nio",
             "leoluz/nvim-dap-go",
             "rcarriga/nvim-dap-ui",
             "theHamsta/nvim-dap-virtual-text",
-            "williamboman/mason.nvim"
         },
 
         config = function()

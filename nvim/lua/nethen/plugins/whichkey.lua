@@ -60,16 +60,17 @@ return {
             }
 
             local mappings = {
-                ["w"] = { "<cmd>w<cr>", "Save" },
-                ["q"] = { "<cmd>q<cr>", "Quit" },
-                ["Q"] = { "<cmd>q!<cr>", "Force quit" },
-                ["x"] = { "<cmd>wq<cr>", "Save and quit" },
-                ["f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
-                ["e"] = { "<cmd>Lex 30<cr>", "Explorer" },
-                -- ["t"] = { "<cmd>ToggleTerm<cr>", "Terminal" },
-                ["o"] = { "<cmd>Telescope oldfiles<cr>", "Old files" },
+                w = { "<cmd>w<cr>", "Save" },
+                q = { "<cmd>q<cr>", "Quit" },
+                Q = { "<cmd>q!<cr>", "Force quit" },
+                x = { "<cmd>wq<cr>", "Save and quit" },
+                f = { "<cmd>Telescope find_files<cr>", "Find files" },
+                e = { "<cmd>Lex 30<cr>", "Explorer" },
+                -- t = { "<cmd>ToggleTerm<cr>", "Terminal" },
+                o = { "<cmd>Telescope oldfiles<cr>", "Old files" },
                 ["/"] = { "<cmd>nohlsearch<cr>", "Clear selection" },
-                ["y"] = { "ggVG\"+y", "Yank file to clipboard" },
+                y = { "ggVG\"+y", "Yank file to clipboard" },
+                k = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open diagnostic window" },
 
                 l = {
                     name = "LSP",

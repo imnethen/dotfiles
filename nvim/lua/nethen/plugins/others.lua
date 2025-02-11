@@ -1,7 +1,6 @@
 return {
     {
         "tpope/vim-surround",
-        lazy = true,
         keys = {
             "ys",
             "ds",
@@ -10,13 +9,11 @@ return {
     },
     {
         "tpope/vim-commentary",
-        lazy = true,
         keys = { { "gc", mode = { "n", "v" } } },
         cmd = "Commentary"
     },
     {
         "ggandor/leap.nvim",
-        lazy = true,
         keys = {
             "s",
             "S",
@@ -29,23 +26,36 @@ return {
     },
     {
         "unblevable/quick-scope",
+        event = "VeryLazy",
     },
-
     {
-        "JohanChane/wsnavigator.nvim",
+        "lukas-reineke/indent-blankline.nvim",
         event = "VeryLazy",
         config = function()
-            require("wsnavigator").setup {
-                ui = {
-                    float = {
-                        border = "single",
-                        float_hl = "single",
-                        border_hl = "single",
-                    },
-                },
+            require("ibl").setup {
+                scope = {
+                    show_start = false,
+                    show_end = false,
+                }
             }
-        end,
+        end
     },
+
+    -- {
+    --     "JohanChane/wsnavigator.nvim",
+    --     event = "VeryLazy",
+    --     config = function()
+    --         require("wsnavigator").setup {
+    --             ui = {
+    --                 float = {
+    --                     border = "single",
+    --                     float_hl = "single",
+    --                     border_hl = "single",
+    --                 },
+    --             },
+    --         }
+    --     end,
+    -- },
 
     -- TODO: oil config?
     {
@@ -56,7 +66,6 @@ return {
     },
     {
         "romainl/vim-cool",
-        lazy = true,
         keys = { "/", "n", "N", ":" },
     },
     {
@@ -65,13 +74,16 @@ return {
     },
     {
         "laurelmay/riscv.vim",
-        lazy = false
+        ft = "riscv"
     },
     -- {
     --     "szebniok/tree-sitter-wgsl",
     --     ft = "wgsl"
     -- },
-    "imnethen/celestetas.nvim",
+    {
+        "imnethen/celestetas.nvim",
+        ft = "tas"
+    },
 
     {
         "RaafatTurki/hex.nvim",
@@ -98,5 +110,42 @@ return {
               end,
             }
         end
-    }
+    },
+
+    {
+        "mhartington/formatter.nvim",
+        cmd = { "Format", "FormatLock", "FormatWrite", "FormatWriteLock" },
+        config = function()
+            require("formatter").setup {
+                logging = true,
+                log_level = vim.log.levels.warn,
+
+                filetype = {
+                    go = { require("formatter/filetypes/go").goimports },
+                    rust = { require("formatter/filetypes/rust").rustfmt },
+                    ocaml = { require("formatter/filetypes/ocaml").ocamlformat },
+                    tas = {
+                        {
+                            exe = "/home/nethen/.local/share/nvim/lazy/celestetas.nvim/bin/fmt/tasfmt",
+                            stdin = true,
+                        }
+                    },
+                    uiua = {
+                        {
+                            exe = "/sbin/uiua",
+                            args = { "fmt" },
+                            -- stdin = true
+                        }
+                    },
+                    clojure = {
+                        {
+                            exe = "~/.local/share/nvim/mason/bin/zprint",
+                            stdin = true,
+                        }
+                    },
+                    ["*"] = { require("formatter/filetypes/any").remove_trailing_whitespace },
+                }
+            }
+        end
+    },
 }

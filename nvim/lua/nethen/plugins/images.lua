@@ -1,17 +1,19 @@
 return {
     {
-        "vhyrro/luarocks.nvim",
-        priority = 1001,
-        opts = {
-            rocks = { "magick" }
-        }
-    },
-    {
         "3rd/image.nvim",
-        event = "VeryLazy",
-        dependencies = { "vhyrro/luarocks.nvim" },
+        ft = "markdown",
+
+        dependencies = {
+            {
+                "vhyrro/luarocks.nvim",
+                priority = 1001,
+                opts = {
+                    rocks = { "magick" }
+                }
+            },
+        },
         config = function()
-            require("image").setup({
+            require("image").setup {
                 backend = "kitty",
                 integrations = {
                     markdown = {
@@ -43,7 +45,7 @@ return {
                 window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
                 editor_only_render_when_focused = false, -- auto show/hide images when the editor gains/looses focus
                 hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
-            })
+            }
         end
     }
 }

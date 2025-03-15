@@ -1,6 +1,7 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        event = "VeryLazy",
 
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
@@ -77,6 +78,7 @@ return {
                 "zls",
                 "clojure_lsp",
                 "ocamllsp",
+                "csharp_ls",
 
                 "uiua",
                 "wgsl_analyzer",
@@ -107,48 +109,33 @@ return {
 
             local caps = blink.get_lsp_capabilities()
 
+            local default_config = {
+                on_attach = function(_, bufnr)
+                    lsp_keymaps(bufnr)
+                end,
+                capabilities = caps,
+            }
+
             local server_configs = {
-                default = {
-                    on_attach = function(_, bufnr)
-                        lsp_keymaps(bufnr)
-                    end,
-                    capabilities = caps,
-                },
-                uiua = {
-                    on_attach = function(_, bufnr)
-                        lsp_keymaps(bufnr)
-                    end,
-                    capabilities = caps,
+                uiua = vim.tbl_extend("keep", default_config, {
                     cmp = { "uiua", "lsp" },
-                },
-                wgsl_analyzer = {
-                    on_attach = function(_, bufnr)
-                        lsp_keymaps(bufnr)
-                    end,
-                    capabilities = caps,
+                }),
+                wgsl_analyzer = vim.tbl_extend("keep", default_config, {
                     cmd = { "wgsl_analyzer" },
                     root_dir = lspconfig.util.root_pattern "*"
-                },
-                clangd = {
-                    on_attach = function(_, bufnr)
-                        lsp_keymaps(bufnr)
-                    end,
-                    capabilities = caps,
+                }),
+                clangd = vim.tbl_extend("keep", default_config, {
                     cmd = { "clangd" },
                     root_dir = lspconfig.util.root_pattern "*"
-                },
-                ocamllsp = { -- TODO: check this
-                    on_attach = function(_, bufnr)
-                        lsp_keymaps(bufnr)
-                    end,
-                    capabilities = caps,
+                }),
+                ocamllsp = vim.tbl_extend("keep", default_config, { -- TODO: check this
                     cmd = { "ocamllsp" },
                     root_dir = lspconfig.util.root_pattern "*"
-                }
+                })
             }
 
             for _, server in pairs(servers) do
-                lspconfig[server].setup(server_configs[server] or server_configs.default)
+                lspconfig[server].setup(server_configs[server] or default_config)
             end
 
             vim.diagnostic.config({ float = { border = "single" } })

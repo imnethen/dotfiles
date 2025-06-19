@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source /home/nethen/.config/river/env.sh
+. /home/nethen/.config/river/env.sh
 river
 
 # dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway

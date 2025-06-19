@@ -99,9 +99,6 @@ specialTags=$((specialTags+1))
 # telegram
 register_workspace M $((1 << $specialTags))
 specialTags=$((specialTags+1))
-# obsidian
-register_workspace O $((1 << $specialTags))
-specialTags=$((specialTags+1))
 # zoom
 register_workspace Z $((1 << $specialTags))
 specialTags=$((specialTags+1))
@@ -133,14 +130,19 @@ riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
 
 
 # screenshots
-riverctl map normal Super Print spawn "grimshot copy area"
-riverctl map normal Super+Control Print spawn "grimshot save area"
-riverctl map normal Super+Shift Print spawn "grimshot copy screen"
-riverctl map normal Super+Shift+Control Print spawn "grimshot save screen"
+# riverctl map normal Super Print spawn "grimshot copy area"
+# riverctl map normal Super+Control Print spawn "grimshot save area"
+# riverctl map normal Super+Shift Print spawn "grimshot copy screen"
+# riverctl map normal Super+Shift+Control Print spawn "grimshot save screen"
+
+riverctl map normal Super Delete spawn "grimshot copy area"
 
 
 # mpd
 riverctl map normal Super slash spawn "mpc toggle"
+
+# tts
+riverctl map normal Super R spawn "/home/nethen/.local/bin/wofispeak.sh"
 
 
 # Declare a passthrough mode. This mode has only a single mapping to return to

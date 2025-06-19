@@ -1,8 +1,7 @@
 waybar config:
-    network
-    style
-    language
+    network // no i dont need this
+    language // this is shrimpossible,,,,
 
-dunst config
+pipewire config // what did she mean by this
 
-modes
+modes // no

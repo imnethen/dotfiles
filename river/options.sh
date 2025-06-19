@@ -13,7 +13,7 @@ riverctl keyboard-layout -variant workman, -options caps:escape,grp:alts_toggle,
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+rivertile -main-location right -view-padding 6 -outer-padding 6 &
 
 # Set background and border color
 riverctl background-color 0x002b36
@@ -24,4 +24,4 @@ riverctl border-color-unfocused 0x868d80
 # TODO
 # border-stuff
 # uhh
-#
+# i already did border stuff but this is still here idk

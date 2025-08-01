@@ -5,6 +5,7 @@ return {
     "ellisonleao/gruvbox.nvim",
     "sainnhe/everforest",
     "catppuccin/nvim",
+    "rose-pine/neovim",
     -- "nyoom-engineering/oxocarbon.nvim",
     -- "EdenEast/nightfox.nvim",
     -- "rebelot/kanagawa.nvim",

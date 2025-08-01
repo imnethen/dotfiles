@@ -20,7 +20,8 @@ vim.cmd([[autocmd FileType * set formatoptions-=cro]])
 vim.cmd([[
     augroup qs_colors
         autocmd!
-        autocmd ColorScheme * highlight QuickScopePrimary guifg='#88ddff' gui=underline
+        "autocmd ColorScheme * highlight QuickScopePrimary guifg='#88ddff' gui=underline
+        autocmd ColorScheme * highlight QuickScopePrimary guifg='#ffffff' gui=underline
         autocmd ColorScheme * highlight QuickScopeSecondary guifg='#ababab' gui=underline
     augroup END
 ]])
@@ -37,10 +38,13 @@ vim.cmd([[autocmd FileType glsl setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType vert setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType frag setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType cpp setlocal commentstring=//%s]])
+vim.cmd([[autocmd FileType c setlocal commentstring=//%s]])
 vim.cmd([[autocmd FileType tas setlocal commentstring=#%s]])
 vim.cmd([[autocmd FileType wgsl setlocal commentstring=//%s]])
+vim.cmd([[autocmd FileType riscv setlocal commentstring=#%s]])
 
 vim.filetype.add({ extension = { ua = "uiua" }})
 
 -- vim.cmd "colorscheme catppuccin-macchiato"
-vim.cmd "colorscheme everforest"
+-- vim.cmd "colorscheme everforest"
+vim.cmd "colorscheme rose-pine-moon"

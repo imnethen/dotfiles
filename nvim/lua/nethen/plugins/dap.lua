@@ -16,23 +16,23 @@ return {
             local dapui = require "dapui"
 
 
-            dapui.setup{
-                layouts = {
-                    {
-                        elements = {
-                            {
-                                id = "scopes",
-                                size = 0.75
-                            },
-                            {
-                                id = "breakpoints",
-                                size = 0.25
-                            }
-                        },
-                        position = "left",
-                        size = 40,
-                    }
-                }
+            dapui.setup {
+                -- layouts = {
+                --     {
+                        -- elements = {
+                        --     {
+                        --         id = "scopes",
+                        --         size = 0.75
+                        --     },
+                        --     {
+                        --         id = "breakpoints",
+                        --         size = 0.25
+                        --     }
+                        -- },
+                        -- position = "left",
+                        -- size = 40,
+                    -- }
+                -- }
             }
 
             dap.listeners.before.attach.dapui_config = function()
@@ -51,7 +51,7 @@ return {
             dap.adapters.gdb = {
                 type = "executable",
                 command = "gdb",
-                args = { "-i", "dap" }
+                args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
             }
             dap.configurations.cpp = {
                 {
@@ -61,7 +61,8 @@ return {
                     program = function()
                         vim.fn.input("path to bin: ", vim.fn.getcwd() .. "/", "file")
                     end,
-                    cwd = "${workspaceFolder}"
+                    cwd = "${workspaceFolder}",
+                    stopAtBeginningOfMainProgram = false,
                 }
             }
 
@@ -75,6 +76,7 @@ return {
             vim.keymap.set("n", "<space>ds", dap.step_into, { desc = "Step into" })
             vim.keymap.set("n", "<space>do", dap.step_out, { desc = "Step out" })
             vim.keymap.set("n", "<space>dn", "<cmd>DapNew<cr>", { desc = "DAP New" })
+            vim.keymap.set("n", "<space>dr", dap.restart, { desc = "DAP Restart" })
         end
     }
 }

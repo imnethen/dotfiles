@@ -2,9 +2,9 @@
 {
     "layer": "top",
     "position": "left",
-    "height": 1424,
+    "height": 1416,
     "margin": "0 0 0 6",
-    "spacing": 0,
+    "spacing": 5,
 
     "modules-left": ["niri/workspaces", "pulseaudio", "mpd"],
     "modules-center": ["niri/window"],

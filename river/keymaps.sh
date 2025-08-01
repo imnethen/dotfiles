@@ -130,12 +130,15 @@ riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
 
 
 # screenshots
-# riverctl map normal Super Print spawn "grimshot copy area"
-# riverctl map normal Super+Control Print spawn "grimshot save area"
-# riverctl map normal Super+Shift Print spawn "grimshot copy screen"
-# riverctl map normal Super+Shift+Control Print spawn "grimshot save screen"
+riverctl map normal Super Print spawn "grimshot copy area"
+riverctl map normal Super+Control Print spawn "grimshot save area"
+riverctl map normal Super+Shift Print spawn "grimshot copy screen"
+riverctl map normal Super+Shift+Control Print spawn "grimshot save screen"
 
 riverctl map normal Super Delete spawn "grimshot copy area"
+riverctl map normal Super+Control Delete spawn "grimshot save area"
+riverctl map normal Super+Shift Delete spawn "grimshot copy screen"
+riverctl map normal Super+Shift+Control Delete spawn "grimshot save screen"
 
 
 # mpd

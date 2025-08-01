@@ -9,12 +9,12 @@ return {
                 "williamboman/mason.nvim",
                 opts = {
                     ui = {
-                    border = "single",
-                    icons = {
-                        package_installed = "<>",
-                        package_pending = "..",
-                        package_uninstalled = "</>",
-                    },
+                        border = "single",
+                        icons = {
+                            package_installed = "<>",
+                            package_pending = "..",
+                            package_uninstalled = "</>",
+                        },
                     },
                     log_level = vim.log.levels.INFO,
                     max_concurrent_installers = 4,
@@ -80,6 +80,7 @@ return {
                 "ocamllsp",
                 "csharp_ls",
 
+                "asm_lsp",
                 "uiua",
                 "wgsl_analyzer",
                 "clangd",
@@ -118,7 +119,7 @@ return {
 
             local server_configs = {
                 uiua = vim.tbl_extend("keep", default_config, {
-                    cmp = { "uiua", "lsp" },
+                    cmd = { "uiua", "lsp" },
                 }),
                 wgsl_analyzer = vim.tbl_extend("keep", default_config, {
                     cmd = { "wgsl_analyzer" },
@@ -131,14 +132,18 @@ return {
                 ocamllsp = vim.tbl_extend("keep", default_config, { -- TODO: check this
                     cmd = { "ocamllsp" },
                     root_dir = lspconfig.util.root_pattern "*"
-                })
+                }),
+                asm_lsp = vim.tbl_extend("keep", default_config, {
+                    cmd = { "asm-lsp" },
+                    filetypes = { "riscv" },
+                }),
             }
 
             for _, server in pairs(servers) do
                 lspconfig[server].setup(server_configs[server] or default_config)
             end
 
-            vim.diagnostic.config({ float = { border = "single" } })
+            vim.diagnostic.config({ virtual_text = true, severity_sort = true, update_in_insert = true, float = { border = "single" } })
 
             vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
                 border = "single",

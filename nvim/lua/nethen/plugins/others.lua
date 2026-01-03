@@ -26,7 +26,17 @@ return {
     },
     {
         "unblevable/quick-scope",
-        event = "VeryLazy",
+        lazy = false,
+
+        config = function()
+            vim.cmd [[
+                augroup qs_colors
+                    autocmd!
+                    autocmd ColorScheme * highlight QuickScopePrimary guifg='#ffffff' gui=underline
+                    autocmd ColorScheme * highlight QuickScopeSecondary guifg='#ababab' gui=underline
+                augroup END
+            ]]
+        end
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -80,37 +90,37 @@ return {
     --     "szebniok/tree-sitter-wgsl",
     --     ft = "wgsl"
     -- },
-    {
-        "imnethen/celestetas.nvim",
-        ft = "tas"
-    },
-
     -- {
-    --     "RaafatTurki/hex.nvim",
-    --     -- TODO: lazy
-    --     config = function()
-    --         require 'hex'.setup {
-
-    --           -- cli command used to dump hex data
-    --           dump_cmd = 'xxd -g 1 -u',
-
-    --           -- cli command used to assemble from hex data
-    --           assemble_cmd = 'xxd -r',
-
-    --           -- function that runs on BufReadPre to determine if it's binary or not
-    --           is_buf_binary_pre_read = function()
-    --             -- logic that determines if a buffer contains binary data or not
-    --             -- must return a bool
-    --           end,
-
-    --           -- function that runs on BufReadPost to determine if it's binary or not
-    --           is_buf_binary_post_read = function()
-    --             -- logic that determines if a buffer contains binary data or not
-    --             -- must return a bool
-    --           end,
-    --         }
-    --     end
+    --     "imnethen/celestetas.nvim",
+    --     ft = "tas"
     -- },
+
+    {
+        "RaafatTurki/hex.nvim",
+        -- TODO: lazy
+        config = function()
+            require 'hex'.setup {
+
+              -- cli command used to dump hex data
+              dump_cmd = 'xxd -g 1 -u',
+
+              -- cli command used to assemble from hex data
+              assemble_cmd = 'xxd -r',
+
+              -- function that runs on BufReadPre to determine if it's binary or not
+              is_buf_binary_pre_read = function()
+                -- logic that determines if a buffer contains binary data or not
+                -- must return a bool
+              end,
+
+              -- function that runs on BufReadPost to determine if it's binary or not
+              is_buf_binary_post_read = function()
+                -- logic that determines if a buffer contains binary data or not
+                -- must return a bool
+              end,
+            }
+        end
+    },
 
     {
         "mhartington/formatter.nvim",
@@ -155,5 +165,21 @@ return {
         config = function()
             vim.g.vimtex_view_general_viewer = "zathura"
         end
+    },
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        ft = "markdown"
+    },
+    {
+        "ya2s/nvim-cursorline",
+        event = "VeryLazy",
+        opts = {
+            cursorline = {
+                enabled = true,
+                timeout = 0,
+                number = false,
+            },
+            cursorword = { enabled = false }
+        }
     }
 }

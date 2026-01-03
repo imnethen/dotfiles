@@ -1,0 +1,14 @@
+[language-server.rust-analyzer]
+command = "/home/yuli/.local/share/nvim/mason/bin/rust-analyzer"
+
+[[language]]
+name = "rust"
+language-servers = [ "rust-analyzer" ]
+
+[[language]]
+name = "cpp"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "nu"
+indent = { tab-width = 4, unit = "    " }

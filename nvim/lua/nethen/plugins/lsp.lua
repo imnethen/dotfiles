@@ -53,7 +53,7 @@ return {
                         }
                     },
                 },
-                opts_extend = { "sources.default" },
+                -- opts_extend = { "sources.default" },
             },
             {
                 "folke/lazydev.nvim",
@@ -118,9 +118,6 @@ return {
             }
 
             local server_configs = {
-                uiua = vim.tbl_extend("keep", default_config, {
-                    cmd = { "uiua", "lsp" },
-                }),
                 wgsl_analyzer = vim.tbl_extend("keep", default_config, {
                     cmd = { "wgsl_analyzer" },
                     root_dir = lspconfig.util.root_pattern "*"
@@ -140,7 +137,9 @@ return {
             }
 
             for _, server in pairs(servers) do
-                lspconfig[server].setup(server_configs[server] or default_config)
+                -- lspconfig[server].setup(server_configs[server] or default_config)
+                vim.lsp.config(server, server_configs[server] or default_config)
+                vim.lsp.enable(server)
             end
 
             vim.diagnostic.config({ virtual_text = true, severity_sort = true, update_in_insert = true, float = { border = "single" } })
